@@ -6,6 +6,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
 
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -14,7 +15,7 @@ export default createGlobalStyle`
 
     width: 100vw;
     height: 100vh;
-
+    
     background: ${props => props.theme.colors.mintCream[500]};
   }
 
