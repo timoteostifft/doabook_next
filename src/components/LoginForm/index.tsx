@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Container, Content } from './styles'
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   return (
     <Container>
       <img src="images/brand.png" alt="" />
