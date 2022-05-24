@@ -1,6 +1,7 @@
 const theme = {
   colors: {
     mintCream: {
+      300: "#FDFFFD",
       500: "#F2F7F2"
     },
     brunswickGreen: {
