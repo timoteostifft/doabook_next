@@ -33,6 +33,8 @@ export const Content = styled.div`
       max-width: 320px;
       width: 100%;
       height: 32px;
+      padding-left: 10px;
+      border-radius: 7.5px;
     }
   }
 
@@ -46,6 +48,7 @@ export const Content = styled.div`
       font-weight: 500;
       border: none;
       color: ${props => props.theme.colors.mintCream[500]};
+      border-radius: 7.5px;
 
       &:nth-child(1){
         background: ${props => props.theme.colors.mango[500]}

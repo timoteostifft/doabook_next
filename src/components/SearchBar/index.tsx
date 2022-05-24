@@ -2,7 +2,7 @@ import { RiSearchLine } from 'react-icons/ri'
 import { CgOptions as Filter } from 'react-icons/cg'
 import { Container, Content } from './styles'
 
-const SearchBar = () => {
+const SearchBar: React.FC = () => {
   return (
     <Container>
       <Content>
