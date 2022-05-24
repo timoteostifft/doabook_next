@@ -15,10 +15,6 @@ export const Content = styled.div`
   max-width: 768px;
   height: 40px;
 
-  @media (min-width: 768px) {
-    margin-bottom: -20px; //half it's height
-  }
-
   div {
     display: flex;
     align-items: center;
