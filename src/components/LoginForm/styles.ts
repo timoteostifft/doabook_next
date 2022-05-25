@@ -51,7 +51,7 @@ export const Content = styled.div`
       border-radius: 7.5px;
 
       &:nth-child(1){
-        background: ${props => props.theme.colors.mango[500]}
+        background: ${props => props.theme.colors.mango[400]}
       }
 
       &:nth-child(2){
