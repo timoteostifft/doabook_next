@@ -8,7 +8,7 @@ const SearchBar: React.FC = () => {
       <Content>
         <div>
           <RiSearchLine />
-          <input type="text" placeholder="Pesquise aqui" />
+          <input type="text" placeholder="Pesquisar livros..." />
         </div>
         <button type="submit">
           <Filter />
