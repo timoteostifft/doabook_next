@@ -23,10 +23,9 @@ const Home: NextPage<HomeProps> = ({ institutions, books }) => {
       </Head>
 
       <Header />
-      <InstitutionsSection />
+      <InstitutionsSection institutions={institutions} />
       <SearchBar />
       <BooksSection books={books}/>
-
     </Wrapper>
   )
 }
@@ -37,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      institution: institutionsResponse.data,
+      institutions: institutionsResponse.data,
       books: booksResponse.data
     },
   }
