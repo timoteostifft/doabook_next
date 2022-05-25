@@ -6,7 +6,7 @@ type Book = {
   launch: Date
   condition: string
   quantity: number
-	created_at: Date
+	institution_id: string
 }
 
 export type { Book }
