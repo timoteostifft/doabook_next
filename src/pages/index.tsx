@@ -1,59 +1,18 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import type { GetStaticProps, NextPage } from 'next'
+/* eslint-disable @next/next/no-img-element */
 import Head from 'next/head'
-import InstitutionsSection from '../components/InstitutionsSection'
-import BooksSection from '../components/BooksSection'
-import { useRouter } from 'next/router'
+import LoginForm from '../components/LoginForm'
+import { Wrapper } from '../styles/pages/Login'
 
-import Header from '../components/Header'
-import SearchBar from '../components/SearchBar'
-import api from '../services/api'
-import { Wrapper } from '../styles/pages/Home'
-import { Institution } from '../types/Institution'
-import { Book } from '../types/Book'
-import { useAuthenticationContext } from '../hooks/useAuthenticationContext'
-import { useEffect } from 'react'
-
-interface HomeProps {
-  institutions: Institution[]
-  books: Book[]
-}
-
-const Home: NextPage<HomeProps> = ({ institutions, books }) => {
-  const { authentication } = useAuthenticationContext()
-  const router = useRouter()
-  
-  if (!authentication?.token) {
-    useEffect(() => {
-      router.push("/login")
-      alert("Usuário precisa estar logado.")
-    })
-  }
-
+const Login: React.FC = () => {
   return (
     <Wrapper>
       <Head>
-        <title>Home | doaBook</title>
+        <title>Login | doaBook</title>
       </Head>
 
-      <Header />
-      <InstitutionsSection institutions={institutions} />
-      <SearchBar />
-      <BooksSection books={books}/>
+      <LoginForm />
     </Wrapper>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const institutionsResponse = await api.get('/institutions')
-  const booksResponse = await api.get('/books/97c9ea6b-7bf6-424e-bafa-6b8213503080')
-
-  return {
-    props: {
-      institutions: institutionsResponse.data,
-      books: booksResponse.data
-    },
-  }
-}
-
-export default Home
+export default Login
