@@ -6,15 +6,8 @@ type InstitutionProviderProps = {
 }
 
 type InstitutionsContextData = {
-  institution: Institution
+  institution: Institution | undefined
   setInstitution: (institution: Institution) => void
-}
-
-const defaultInstitution: Institution = {
-  id: '97c9ea6b-7bf6-424e-bafa-6b8213503080',
-  name: 'test',
-  address: '',
-  admin_id: '',
 }
 
 const InstitutionContext = createContext(
@@ -22,7 +15,7 @@ const InstitutionContext = createContext(
   )
 
 function InstitutionProvider({ children }: InstitutionProviderProps) {
-  const [ institution, setInstitution] = useState<Institution>(defaultInstitution)
+  const [ institution, setInstitution] = useState<Institution>()
   return (
     <InstitutionContext.Provider value={{ institution, setInstitution }}>
       { children }
