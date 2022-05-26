@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InstitutionEditModal from '../InstitutionEditModal';
+import InstitutionAddModal from '../InstitutionAddModal';
 import InstitutionsListModal from '../InstitutionsListModal';
 
 import { Institution } from '../../types/Institution';
@@ -22,7 +22,7 @@ const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions 
     setInstitution(institutions[0])
   }
 
-  const [ InstitutionEditModalIsOpen, setInstitutionEditModalIslOpen ] = useState<boolean>(false)
+  const [ InstitutionAddModalIsOpen, setInstitutionAddModalIslOpen ] = useState<boolean>(false)
   const [ InstitutionsListModalIsOpen, setInstitutionsListModalIsOpen ] = useState<boolean>(false)
 
   return (
@@ -30,7 +30,7 @@ const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions 
       <Content>
         <h3>{institution?.name}</h3>
         <nav>
-          <button onClick={() => setInstitutionEditModalIslOpen(!InstitutionEditModalIsOpen)}>
+          <button onClick={() => setInstitutionAddModalIslOpen(!InstitutionAddModalIsOpen)}>
             <Add />
           </button>
           <button onClick={() => setInstitutionsListModalIsOpen(!InstitutionsListModalIsOpen)}>
@@ -39,11 +39,10 @@ const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions 
         </nav>
       </Content>
 
-      { InstitutionEditModalIsOpen && (
-        <InstitutionEditModal
-          institution={institution} 
-          modalIsOpen={InstitutionEditModalIsOpen}
-          handleCloseModal={() => setInstitutionEditModalIslOpen(!InstitutionEditModalIsOpen)}
+      { InstitutionAddModalIsOpen && (
+        <InstitutionAddModal
+          modalIsOpen={InstitutionAddModalIsOpen}
+          handleCloseModal={() => setInstitutionAddModalIslOpen(!InstitutionAddModalIsOpen)}
           />
       )}
 
