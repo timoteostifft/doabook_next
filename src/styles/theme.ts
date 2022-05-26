@@ -17,6 +17,9 @@ const theme = {
     mango: {
       400: "#FAC64C",
       500: "#FABC2A"
+    },
+    capri: {
+      300: "#DE6B48"
     }
   }
 }
