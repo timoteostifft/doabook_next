@@ -13,31 +13,52 @@ export const Content = styled.div`
   align-items: center;
 
   h3 {
-    color: ${props => props.theme.colors.brunswickGreen[300]}
+    color: ${props => props.theme.colors.brunswickGreen[300]};
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
   }
 
-  button {
+  nav {
     margin-left: auto;
-
     display: flex;
-    align-items: center;
-    justify-content: center;
 
-    height: 40px;
-    width: 40px;
+    button {
+      margin-left: 10px;
 
-    color: ${props => props.theme.colors.mintCream[300]};
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    border: none;
-    border-radius: 7.5px ;
-    background: ${props => props.theme.colors.mintCream[500]};
+      height: 40px;
+      width: 40px;
 
-    svg {
-      margin-right: 0.5px;
+      color: ${props => props.theme.colors.mintCream[300]};
 
-      font-size: 22px;
-      color: ${props => props.theme.colors.brunswickGreen[300]};
+      border: none;
+      border-radius: 7.5px ;
+      background: ${props => props.theme.colors.mintCream[500]};
 
+      svg {
+        margin-right: 0.5px;
+
+        font-size: 28px;
+        color: ${props => props.theme.colors.brunswickGreen[300]};
+      }
+
+      &:first-child {
+        svg {
+          color: ${props => props.theme.colors.brunswickGreen[300]}
+        }
+      }
+
+      &:nth-child(2){
+        svg {
+          font-size: 34px;
+        }  
+      }
     }
   }
 `;
