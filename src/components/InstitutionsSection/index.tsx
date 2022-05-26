@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import InstitutionsModal from '../InstitutionsModal';
+import InstitutionEditModal from '../InstitutionEditModal';
+import InstitutionsListModal from '../InstitutionsListModal';
 
 import { Institution } from '../../types/Institution';
 import { Container, Content } from './styles';
 
-import { VscListSelection as Select } from 'react-icons/vsc'
+import { BsBoxArrowInRight as Select } from 'react-icons/bs'
+import { MdOutlineLibraryAdd as Add } from 'react-icons/md'
 
 import { useInstitutionContext } from '../../hooks/useInstitutionContext'
 
@@ -15,20 +17,42 @@ interface InstitutionsSectionProps {
 const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions }) => {
 
   const { institution, setInstitution } = useInstitutionContext()
+  
+  if(typeof(institution) === "undefined") {
+    setInstitution(institutions[0])
+  }
 
-  const [ isModalOpen, setIsModalOPen ] = useState<boolean>(false)
+  const [ InstitutionEditModalIsOpen, setInstitutionEditModalIslOpen ] = useState<boolean>(false)
+  const [ InstitutionsListModalIsOpen, setInstitutionsListModalIsOpen ] = useState<boolean>(false)
 
   return (
     <Container>
       <Content>
-        <h3>Instituição: {institution.name}</h3>
-        <button onClick={() => setIsModalOPen(!isModalOpen)}>
-          <Select />
-        </button>
+        <h3>{institution?.name}</h3>
+        <nav>
+          <button onClick={() => setInstitutionEditModalIslOpen(!InstitutionEditModalIsOpen)}>
+            <Add />
+          </button>
+          <button onClick={() => setInstitutionsListModalIsOpen(!InstitutionsListModalIsOpen)}>
+            <Select />
+          </button>
+        </nav>
       </Content>
 
-      {isModalOpen && (
-        <InstitutionsModal institution={institution} institutions={institutions} />
+      { InstitutionEditModalIsOpen && (
+        <InstitutionEditModal
+          institution={institution} 
+          modalIsOpen={InstitutionEditModalIsOpen}
+          handleCloseModal={() => setInstitutionEditModalIslOpen(!InstitutionEditModalIsOpen)}
+          />
+      )}
+
+      { InstitutionsListModalIsOpen && (
+        <InstitutionsListModal
+          institutions={institutions}
+          modalIsOpen={InstitutionsListModalIsOpen}
+          handleCloseModal={() => setInstitutionsListModalIsOpen(!InstitutionsListModalIsOpen)}
+        />
       )}
     </Container>
     )
