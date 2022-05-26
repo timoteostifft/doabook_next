@@ -8,6 +8,7 @@ const LoginForm: React.FC = () => {
 
   function handleLogin (email: string, password: string){
     login({email, password})
+    
   }
 
   const [ email, setEmail ] = useState<string>('')
