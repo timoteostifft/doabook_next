@@ -33,7 +33,7 @@ function AuthenticationProvider({ children }: AuthenticationProviderProps) {
         setAuthentication(authenticated)
         postToLocalStorage('token', authenticated.token)
 
-        router.push("/")
+        router.push("/home")
     } catch(err: any) {
       alert(`${err.response.data.message}`)
     }
