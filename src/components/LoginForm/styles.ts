@@ -33,7 +33,7 @@ export const Content = styled.div`
       max-width: 320px;
       width: 100%;
       height: 32px;
-      padding-left: 10px;
+      padding: 0 12px;
       border-radius: 7.5px;
     }
   }
