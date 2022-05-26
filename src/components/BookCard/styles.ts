@@ -54,11 +54,12 @@ export const Content = styled.div`
       color: ${props => props.theme.colors.mintCream[300]};
 
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px 0px;
       border-radius: 7.5px ;
-      background: ${props => props.theme.colors.mango[400]};
+      background: ${props => props.theme.colors.capri[300]};
 
-      &:last-child {
-        background: ${props => props.theme.colors.englishVermilion[300]};
+      &:last-child { 
+        background: ${props => props.theme.colors.mango[400]}; 
       }
 
       svg {
