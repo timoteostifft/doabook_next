@@ -4,6 +4,33 @@ export const Container = styled.div`
   width: 100%;
   height: 60px;
   padding: 5px;
+
+  display: flex;
+
+  & + & {
+    margin-top: -16px;
+  }
+
+  button:nth-child(2) {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    width: 35px;
+
+    color: ${props => props.theme.colors.mintCream[300]};
+
+    border: none;
+    border-radius: 7.5px ;
+    background: ${props => props.theme.colors.brunswickGreen[300]};
+
+    svg {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Content = styled.button`
@@ -12,8 +39,8 @@ export const Content = styled.button`
 
   padding: 0 10px;
 
-  width: 100%;
-  height: 100%;
+  width: 235px;
+  height: 35px;
   border: none;
 
   border-radius: 7.5px;
@@ -31,24 +58,5 @@ export const Content = styled.button`
     overflow: hidden;
   }
 
-  button {
-    margin-left: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 30px;
-    width: 30px;
-
-    color: ${props => props.theme.colors.mintCream[300]};
-
-    border: none;
-    border-radius: 7.5px ;
-    background: ${props => props.theme.colors.brunswickGreen[300]};
-
-    svg {
-      font-size: 18px;
-    }
-  }
+  
 `
