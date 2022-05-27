@@ -31,11 +31,11 @@ function AuthenticationProvider({ children }: AuthenticationProviderProps) {
         .then(response => response.data)
 
         setAuthentication(authenticated)
-        postToLocalStorage('token', authenticated.token)
+        // postToLocalStorage('token', authenticated.token)
 
         router.push("/home")
     } catch(err: any) {
-      alert(`${err.response.data.message}`)
+      alert("Usuário ou senha incorretos!")
     }
   }
   return (
