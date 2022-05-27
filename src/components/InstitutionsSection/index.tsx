@@ -9,17 +9,15 @@ import { BsBoxArrowInRight as Select } from 'react-icons/bs'
 import { MdOutlineLibraryAdd as Add } from 'react-icons/md'
 
 import { useInstitutionContext } from '../../hooks/useInstitutionContext'
+import { useInstitutionsContext } from '../../hooks/useInstitutions';
 
-interface InstitutionsSectionProps {
-  institutions: Institution[]
-}
-
-const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions }) => {
+const InstitutionsSection: React.FC = () => {
 
   const { institution, setInstitution } = useInstitutionContext()
+  const { institutions } = useInstitutionsContext()
   
   if(typeof(institution) === "undefined") {
-    setInstitution(institutions[0])
+      setInstitution(institutions[0])
   }
 
   const [ InstitutionAddModalIsOpen, setInstitutionAddModalIslOpen ] = useState<boolean>(false)
@@ -48,7 +46,6 @@ const InstitutionsSection: React.FC<InstitutionsSectionProps> = ({ institutions 
 
       { InstitutionsListModalIsOpen && (
         <InstitutionsListModal
-          institutions={institutions}
           modalIsOpen={InstitutionsListModalIsOpen}
           handleCloseModal={() => setInstitutionsListModalIsOpen(!InstitutionsListModalIsOpen)}
         />
