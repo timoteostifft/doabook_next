@@ -6,7 +6,7 @@ type UsersProviderProps = {
 }
 
 type UsersContextData = {
-  users: User[] | undefined
+  users: User[]
   setUsers: Dispatch<SetStateAction<User[]>>
 }
 
