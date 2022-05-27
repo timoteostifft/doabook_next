@@ -8,6 +8,7 @@ import api from '../../services/api';
 import { useUsersContext } from '../../hooks/useUsersContext';
 import UserCard from '../UserCard';
 import { useAuthenticationContext } from '../../hooks/useAuthenticationContext';
+import { useInstitutionsContext } from '../../hooks/useInstitutions';
 
 interface InstitutionEditModalProps {
   modalIsOpen: boolean
@@ -16,12 +17,13 @@ interface InstitutionEditModalProps {
 
 const InstitutionAddModal: React.FC<InstitutionEditModalProps> = ({ 
   modalIsOpen, 
-  handleCloseModal
+  handleCloseModal,
 }) => {
 
+  const { setInstitutions } = useInstitutionsContext()
   const { authentication } = useAuthenticationContext()
 
-  const { users, setUsers } = useUsersContext()
+  const { users } = useUsersContext()
 
   const [ name, setName ] = useState<string>('')
   const [ address, setAddress] = useState<string>('')
@@ -37,11 +39,8 @@ const InstitutionAddModal: React.FC<InstitutionEditModalProps> = ({
 
   async function handleAdd (name: string, address: string, admin_id: string){
     await api.post(
-      '/institutions', 
-      { name,  address, admin_id },
-      config
-      )
-    await api.get('/institutions').then(response => setUsers(response.data))
+      '/institutions', { name,  address, admin_id }, config)
+      .then(response => setInstitutions(response.data))
   }
   
   return (
