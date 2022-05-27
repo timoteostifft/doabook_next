@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 auto;
-
-  height: 340px;
+  min-height: 640px;
   max-width: 340px;
 
   padding: 20px;
@@ -11,6 +9,8 @@ export const Container = styled.div`
   border-radius: 7.5px;
   background: ${props => props.theme.colors.mintCream[500]};
   box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 20px 0px;
+  border: 1px solid ${props => props.theme.colors.brunswickGreen[300]};
+
 `;
 
 export const Header = styled.div`
@@ -91,14 +91,12 @@ export const Content = styled.div`
       }
 
     section {
-      box-shadow: rgba(0, 0, 0, 0.10) 0px 10px 10px 0px;
       margin-top: 5px;
       border-radius: 7.5px;
       display: flex;
       flex-direction: column;
-      height: 105px;
+      height: 400px;
       width: 100%;
-      max-height: 110px;
       overflow: scroll;
 
       overflow-y: scroll;
