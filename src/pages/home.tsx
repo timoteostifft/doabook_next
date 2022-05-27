@@ -15,6 +15,7 @@ import { useAuthenticationContext } from '../hooks/useAuthenticationContext'
 import { useEffect } from 'react'
 import { User } from '../types/User'
 import { useUsersContext } from '../hooks/useUsersContext'
+import { useInstitutionsContext } from '../hooks/useInstitutions'
 
 interface HomeProps {
   users: User[]
@@ -34,8 +35,10 @@ const Home: NextPage<HomeProps> = ({ institutions, books, users }) => {
   }
 
   const { setUsers } = useUsersContext()
+  const { setInstitutions } = useInstitutionsContext()
 
   setUsers(users)
+  setInstitutions(institutions)
 
   return (
     <Wrapper>
@@ -44,7 +47,7 @@ const Home: NextPage<HomeProps> = ({ institutions, books, users }) => {
       </Head>
 
       <Header />
-      <InstitutionsSection institutions={institutions} />
+      <InstitutionsSection />
       <SearchBar />
       <BooksSection books={books}/>
     </Wrapper>
