@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal'
 import { Institution } from '../../types/Institution';
 import { IoMdClose as Close } from 'react-icons/io'
 
 import InstitutionCard from '../InstitutionCard';
 import { Container, Content, Header } from './styles';
+import api from '../../services/api';
+import { useInstitutionsContext } from '../../hooks/useInstitutions';
 
 interface InstitutionsListModalProps {
   modalIsOpen: boolean
   handleCloseModal: () => void
-  institutions: Institution[]
 }
 
-const InstitutionsListModal: React.FC<InstitutionsListModalProps> = ({ modalIsOpen, handleCloseModal, institutions }) => {
+const InstitutionsListModal: React.FC<InstitutionsListModalProps> = ({ modalIsOpen, handleCloseModal }) => {
+
+  const { institutions } = useInstitutionsContext()
+
   return (
     <Modal
       ariaHideApp={false}
